@@ -67,7 +67,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   return (
     <Fragment>
       <Helmet>
-        <title>Sign up | tripaider</title>
+        <title>Sign up | tripaider - a new way to travel</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
       <h2 className="title is-size-2">Sign Up</h2>

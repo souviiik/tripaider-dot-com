@@ -55,7 +55,7 @@ const Login = ({ login, isAuthenticated }) => {
   return (
     <Fragment>
       <Helmet>
-        <title>Login | tripaider</title>
+        <title>Log in | tripaider - a new way to travel</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
       <h2 className="title is-size-2">Sign In</h2>
