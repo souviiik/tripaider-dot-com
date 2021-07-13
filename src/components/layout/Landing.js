@@ -12,7 +12,7 @@ const Landing = ({ isAuthenticated }) => {
     <section className="container">
       <div className="dark-overlay">
         <div className="landing-inner">
-          <h1 className="title is-size-1">Developer Connector</h1>
+          <h1 className="title is-size-1">Welcome to tripaider</h1>
           <p className="mb-5">
           Morbi finibus, tortor at cursus blandit, leo metus tristique eros, vel fermentum risus nunc sed libero. Nullam nisl arcu, mattis nec libero eu, euismod convallis eros. Nullam tempus dui aliquam nisl viverra, sed tempor eros gravida. Aliquam eget aliquet enim, eu dignissim nulla. Nulla ultricies imperdiet congue. Phasellus molestie ex risus, at dictum mauris aliquet non. Quisque eu gravida odio, ut hendrerit mi.
           </p>
