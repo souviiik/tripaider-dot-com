@@ -9,9 +9,9 @@ import Logo from "../../assets/logo.jpg";
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const authLinks = (
     <>
+      <Link className="navbar-item">Dashboard</Link>
       <Link className="navbar-item">Developers</Link>
       <Link className="navbar-item">Posts</Link>
-      <Link className="navbar-item">Dashboard</Link>
       <div className="navbar-end">
         <div className="navbar-item">
           <a onClick={logout} href="#!" className="button is-danger">

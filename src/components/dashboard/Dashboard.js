@@ -1,17 +1,17 @@
-import React, { Fragment, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import DashboardActions from './DashboardActions';
-import Experience from './Experience';
-import Education from './Education';
-import { getCurrentProfile, deleteAccount } from '../../actions/profile';
+import React, { Fragment, useEffect } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import DashboardActions from "./DashboardActions";
+import Experience from "./Experience";
+import Education from "./Education";
+import { getCurrentProfile, deleteAccount } from "../../actions/profile";
 
 const Dashboard = ({
   getCurrentProfile,
   deleteAccount,
   auth: { user },
-  profile: { profile }
+  profile: { profile },
 }) => {
   useEffect(() => {
     getCurrentProfile();
@@ -21,8 +21,18 @@ const Dashboard = ({
     <Fragment>
       <h2 className="title is-size-2">Dashboard</h2>
       <p className="lead">
-        <pre>{JSON.stringify(user, null, 4)}</pre>
-        <i className="fas fa-user" /> Welcome {user && `${user.name} ${user.lname}`}
+        {/* {
+        "_id": "60ed49bdaab81700227b6c86",
+        "fname": "Souvik",
+        "lname": "Banerjee",
+        "email": "tabun.souvik.83@gmail.com",
+        "phone": "8334891888",
+        "usertype": "traveller",
+        "date": "2021-07-13T08:07:25.800Z",
+        "__v": 0
+      } */}
+        <i className="fas fa-user" /> Welcome{" "}
+        {user && `${user.fname} ${user.lname}`}
       </p>
       {profile !== null ? (
         <Fragment>
@@ -52,12 +62,12 @@ Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
-  profile: state.profile
+  profile: state.profile,
 });
 
 export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
