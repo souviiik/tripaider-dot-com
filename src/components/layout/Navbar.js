@@ -12,10 +12,14 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
       <Link className="navbar-item">Developers</Link>
       <Link className="navbar-item">Posts</Link>
       <Link className="navbar-item">Dashboard</Link>
-      <a onClick={logout} href="#!">
-        <i className="fas fa-sign-out-alt" />{" "}
-        <span className="hide-sm">Logout</span>
-      </a>
+      <div className="navbar-end">
+        <div className="navbar-item">
+          <a onClick={logout} href="#!" className="button is-danger">
+            <i className="fas fa-sign-out-alt" />{" "}
+            <span className="hide-sm">Logout</span>
+          </a>
+        </div>
+      </div>
     </>
   );
 
