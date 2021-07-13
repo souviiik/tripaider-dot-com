@@ -22,7 +22,7 @@ const Dashboard = ({
       <h2 className="title is-size-2">Dashboard</h2>
       <p className="lead">
         <pre>{JSON.stringify(user, null, 4)}</pre>
-        <i className="fas fa-user" /> Welcome {user && user.name}
+        <i className="fas fa-user" /> Welcome {user && `${user.name} ${user.lname}`}
       </p>
       {profile !== null ? (
         <Fragment>
