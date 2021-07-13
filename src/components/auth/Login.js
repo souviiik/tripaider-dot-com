@@ -58,36 +58,42 @@ const Login = ({ login, isAuthenticated }) => {
         <title>Log in | tripaider - a new way to travel</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
-      <h2 className="title is-size-2">Sign In</h2>
-      <form onSubmit={handleSubmit}>
-        <Input
-          label="Email"
-          type="email"
-          id="email"
-          name="email"
-          changeHandler={handleChange}
-          blurHandler={handleBlur}
-          value={values.email}
-        />
-        <Input
-          label="Password"
-          type="password"
-          id="password"
-          name="password"
-          changeHandler={handleChange}
-          blurHandler={handleBlur}
-          value={values.password}
-        />
-        <div className="buttons">
-          <button type="submit" className="button is-success">
-            Login
-          </button>
-          <button type="reset" className="button is-light" onClick={resetForm}>
-            Reset
-          </button>
-        </div>
-      </form>
-      {/* <form className="form" onSubmit={onSubmit}>
+      <div className="columns is-centered">
+        <div className="column is-half">
+          <h2 className="title is-size-2">Log In</h2>
+          <form onSubmit={handleSubmit}>
+            <Input
+              label="Email"
+              type="email"
+              id="email"
+              name="email"
+              changeHandler={handleChange}
+              blurHandler={handleBlur}
+              value={values.email}
+            />
+            <Input
+              label="Password"
+              type="password"
+              id="password"
+              name="password"
+              changeHandler={handleChange}
+              blurHandler={handleBlur}
+              value={values.password}
+            />
+            <div className="buttons">
+              <button type="submit" className="button is-success">
+                Log in
+              </button>
+              <button
+                type="reset"
+                className="button is-light"
+                onClick={resetForm}
+              >
+                Reset
+              </button>
+            </div>
+          </form>
+          {/* <form className="form" onSubmit={onSubmit}>
         <div className="form-group">
           <input
             type="email"
@@ -110,9 +116,11 @@ const Login = ({ login, isAuthenticated }) => {
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
       </form> */}
-      <p className="my-1">
-        Don't have an account? <Link to="/register">Sign Up</Link>
-      </p>
+          <p className="my-1">
+            Don't have an account? <Link to="/register">Sign Up</Link>
+          </p>
+        </div>
+      </div>
     </Fragment>
   );
 };
