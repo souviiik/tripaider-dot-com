@@ -19,8 +19,9 @@ const Dashboard = ({
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Dashboard</h1>
+      <h2 className="title is-size-2">Dashboard</h2>
       <p className="lead">
+        <pre>{JSON.stringify(user, null, 4)}</pre>
         <i className="fas fa-user" /> Welcome {user && user.name}
       </p>
       {profile !== null ? (
