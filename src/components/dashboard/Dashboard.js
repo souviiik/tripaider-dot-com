@@ -11,6 +11,7 @@ const Dashboard = ({
   getCurrentProfile,
   deleteAccount,
   auth: {
+    user,
     user: { fname, lname, usertype },
   },
   profile: { profile },
