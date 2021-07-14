@@ -146,7 +146,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             />
             <div className="buttons">
               <button type="submit" className="button is-success">
-                Signup
+                Sign up
               </button>
               <button
                 type="reset"

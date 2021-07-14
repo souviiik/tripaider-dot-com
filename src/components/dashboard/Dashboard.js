@@ -17,11 +17,8 @@ const Dashboard = ({
     getCurrentProfile();
   }, [getCurrentProfile]);
 
-  return (
-    <Fragment>
-      <h2 className="title is-size-2">Dashboard</h2>
-      <p className="lead">
-        {/* {
+  {
+    /* {
         "_id": "60ed49bdaab81700227b6c86",
         "fname": "Souvik",
         "lname": "Banerjee",
@@ -30,29 +27,42 @@ const Dashboard = ({
         "usertype": "traveller",
         "date": "2021-07-13T08:07:25.800Z",
         "__v": 0
-      } */}
+      } */
+  }
+
+  return (
+    <Fragment>
+      <h2 className="title is-size-2">Dashboard</h2>
+      <p className="lead">
         <i className="fas fa-user" /> Welcome{" "}
         {user && `${user.fname} ${user.lname}`}
       </p>
-      {profile !== null ? (
-        <Fragment>
-          <DashboardActions />
-          <Experience experience={profile.experience} />
-          <Education education={profile.education} />
+      {usertype === "agent" ? (
+        profile !== null ? (
+          <Fragment>
+            <DashboardActions />
+            <Experience experience={profile.experience} />
+            <Education education={profile.education} />
 
-          <div className="my-2">
-            <button className="btn btn-danger" onClick={() => deleteAccount()}>
-              <i className="fas fa-user-minus" /> Delete My Account
-            </button>
-          </div>
-        </Fragment>
+            <div className="my-2">
+              <button
+                className="btn btn-danger"
+                onClick={() => deleteAccount()}
+              >
+                <i className="fas fa-user-minus" /> Delete My Account
+              </button>
+            </div>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <p>You have not yet setup a profile, please add some info</p>
+            <Link to="/create-profile" className="btn btn-primary my-1">
+              Create Profile
+            </Link>
+          </Fragment>
+        )
       ) : (
-        <Fragment>
-          <p>You have not yet setup a profile, please add some info</p>
-          <Link to="/create-profile" className="btn btn-primary my-1">
-            Create Profile
-          </Link>
-        </Fragment>
+        <button>Create New Trip</button>
       )}
     </Fragment>
   );
