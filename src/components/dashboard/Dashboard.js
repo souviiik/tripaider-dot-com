@@ -10,7 +10,9 @@ import { getCurrentProfile, deleteAccount } from "../../actions/profile";
 const Dashboard = ({
   getCurrentProfile,
   deleteAccount,
-  auth: { user },
+  auth: {
+    user: { fname, lname, usertype },
+  },
   profile: { profile },
 }) => {
   useEffect(() => {
@@ -35,7 +37,7 @@ const Dashboard = ({
       <h2 className="title is-size-2">Dashboard</h2>
       <p className="lead">
         <i className="fas fa-user" /> Welcome{" "}
-        {user && `${user.fname} ${user.lname}`}
+        {user && `${fname} ${lname} - ${usertype}`}
       </p>
       {profile !== null ? (
         <Fragment>
