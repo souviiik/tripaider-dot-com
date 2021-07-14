@@ -37,7 +37,7 @@ const Dashboard = ({
         <i className="fas fa-user" /> Welcome{" "}
         {user && `${user.fname} ${user.lname}`}
       </p>
-      {usertype === "agent" ? (
+      {usertype !== "agent" ? (
         profile !== null ? (
           <Fragment>
             <DashboardActions />
