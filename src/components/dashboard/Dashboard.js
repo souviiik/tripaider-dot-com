@@ -20,19 +20,6 @@ const Dashboard = ({
     getCurrentProfile();
   }, [getCurrentProfile]);
 
-  {
-    /* {
-        "_id": "60ed49bdaab81700227b6c86",
-        "fname": "Souvik",
-        "lname": "Banerjee",
-        "email": "tabun.souvik.83@gmail.com",
-        "phone": "8334891888",
-        "usertype": "traveller",
-        "date": "2021-07-13T08:07:25.800Z",
-        "__v": 0
-      } */
-  }
-
   return (
     <Fragment>
       <h2 className="title is-size-2">Dashboard</h2>
