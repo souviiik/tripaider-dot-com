@@ -138,7 +138,7 @@ const Login = ({ login, isAuthenticated }) => {
           </p>
         </div>
         <div className="column is-half">
-          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          <div class="g-signin2" data-onsuccess={onSignIn}></div>
           {/* <GoogleLogin
             clientId="311520119224-bo7rlq9ejon0n1vhahojtcpmkdj02hp5.apps.googleusercontent.com"
             buttonText="Login"
