@@ -127,7 +127,7 @@ const Login = ({ login, isAuthenticated }) => {
         </div>
         <div className="column is-half">
           <GoogleLogin
-            clientId={`${process.env.CLIENT_ID}.apps.googleusercontent.com`}
+            clientId="311520119224-bo7rlq9ejon0n1vhahojtcpmkdj02hp5.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
