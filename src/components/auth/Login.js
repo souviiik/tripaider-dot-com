@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { useFormik } from "formik";
 import { Helmet } from "react-helmet";
-// import GoogleLogin from "react-google-login";
+import GoogleLogin from "react-google-login";
 
 import { login } from "../../actions/auth";
 import Input from "../common/Input";
@@ -17,18 +17,15 @@ const Login = ({ login, isAuthenticated }) => {
     },
     onSubmit: ({ email, password }) => {
       login(email, password);
-      // axios
-      //   .post("https://tripaider-api.herokuapp.com/api/users", values)
-      //   .then((res) => console.log(res.data))
-      //   .catch((err) => console.log(err));
     },
   });
 
-  // console.log(`formik`, formik);
+  const responseGoogle = (response) => {
+    console.log(JSON.stringify(response, null, 2));
 
-  // const responseGoogle = (response) => {
-  //   alert(JSON.stringify(response, null, 2));
-  // };
+    var profile = googleUser.getBasicProfile();
+    console.log("profile: " + profile);
+  };
 
   function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
@@ -46,20 +43,6 @@ const Login = ({ login, isAuthenticated }) => {
     values,
     // isSubmitting,
   } = formik;
-  // const [formData, setFormData] = useState({
-  //   email: '',
-  //   password: ''
-  // });
-
-  // const { email, password } = formData;
-
-  // const onChange = e =>
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  // const onSubmit = e => {
-  //   e.preventDefault();
-  //   login(email, password);
-  // };
 
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
@@ -110,42 +93,20 @@ const Login = ({ login, isAuthenticated }) => {
               </button>
             </div>
           </form>
-          {/* <form className="form" onSubmit={onSubmit}>
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            value={email}
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={onChange}
-            minLength="6"
-          />
-        </div>
-        <input type="submit" className="btn btn-primary" value="Login" />
-      </form> */}
           <p className="my-1">
             Don't have an account? <Link to="/register">Sign Up</Link>
           </p>
         </div>
         <div className="column is-half">
           <div class="g-signin2" data-onsuccess={onSignIn}></div>
-          {/* <GoogleLogin
+          <hr />
+          <GoogleLogin
             clientId="311520119224-bo7rlq9ejon0n1vhahojtcpmkdj02hp5.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             cookiePolicy={"single_host_origin"}
-          /> */}
+          />
         </div>
       </div>
     </Fragment>
