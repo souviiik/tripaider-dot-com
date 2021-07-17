@@ -27,7 +27,7 @@ const Login = ({ login, isAuthenticated }) => {
   // console.log(`formik`, formik);
 
   const responseGoogle = (response) => {
-    alert(`response`, response);
+    alert(response);
   };
 
   const {
