@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { useFormik } from "formik";
 import { Helmet } from "react-helmet";
+import GoogleLogin from "react-google-login";
 
 import { login } from "../../actions/auth";
 import Input from "../common/Input";
@@ -23,7 +24,11 @@ const Login = ({ login, isAuthenticated }) => {
     },
   });
 
-  console.log(`formik`, formik);
+  // console.log(`formik`, formik);
+
+  const responseGoogle = (response) => {
+    alert(`response`, response);
+  };
 
   const {
     resetForm,
@@ -119,6 +124,15 @@ const Login = ({ login, isAuthenticated }) => {
           <p className="my-1">
             Don't have an account? <Link to="/register">Sign Up</Link>
           </p>
+        </div>
+        <div className="column is-half">
+          <GoogleLogin
+            clientId={`${process.env.CLIENT_ID}.apps.googleusercontent.com`}
+            buttonText="Login"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={"single_host_origin"}
+          />
         </div>
       </div>
     </Fragment>
