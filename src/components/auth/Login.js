@@ -21,19 +21,9 @@ const Login = ({ login, isAuthenticated }) => {
   });
 
   const responseGoogle = (response) => {
-    console.log(JSON.stringify(response, null, 2));
-
-    var profile = response.getBasicProfile();
+    var profile = response.profileObj;
     console.log("profile: " + profile);
   };
-
-  function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log("Name: " + profile.getName());
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
-  }
 
   const {
     resetForm,
@@ -98,8 +88,6 @@ const Login = ({ login, isAuthenticated }) => {
           </p>
         </div>
         <div className="column is-half">
-          <div class="g-signin2" data-onsuccess={onSignIn}></div>
-          <hr />
           <GoogleLogin
             clientId="311520119224-bo7rlq9ejon0n1vhahojtcpmkdj02hp5.apps.googleusercontent.com"
             buttonText="Login"
