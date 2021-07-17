@@ -22,7 +22,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   const responseGoogle = (response) => {
     var profile = response.profileObj;
-    console.log("profile: " + profile);
+    console.log("profile: " + JSON.stringify(profile, null, 4));
   };
 
   const {
