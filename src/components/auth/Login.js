@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { useFormik } from "formik";
 import { Helmet } from "react-helmet";
-import GoogleLogin from "react-google-login";
+// import GoogleLogin from "react-google-login";
 
 import { login } from "../../actions/auth";
 import Input from "../common/Input";
@@ -26,9 +26,17 @@ const Login = ({ login, isAuthenticated }) => {
 
   // console.log(`formik`, formik);
 
-  const responseGoogle = (response) => {
-    alert(JSON.stringify(response, null, 2));
-  };
+  // const responseGoogle = (response) => {
+  //   alert(JSON.stringify(response, null, 2));
+  // };
+
+  function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log("Name: " + profile.getName());
+    console.log("Image URL: " + profile.getImageUrl());
+    console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }
 
   const {
     resetForm,
@@ -62,6 +70,10 @@ const Login = ({ login, isAuthenticated }) => {
       <Helmet>
         <title>Log in | tripaider - a new way to travel</title>
         <meta name="description" content="Helmet application" />
+        <meta
+          name="google-signin-client_id"
+          content="311520119224-bo7rlq9ejon0n1vhahojtcpmkdj02hp5.apps.googleusercontent.com"
+        ></meta>
       </Helmet>
       <div className="columns is-centered">
         <div className="column is-half">
@@ -126,13 +138,14 @@ const Login = ({ login, isAuthenticated }) => {
           </p>
         </div>
         <div className="column is-half">
-          <GoogleLogin
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
+          {/* <GoogleLogin
             clientId="311520119224-bo7rlq9ejon0n1vhahojtcpmkdj02hp5.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             cookiePolicy={"single_host_origin"}
-          />
+          /> */}
         </div>
       </div>
     </Fragment>
