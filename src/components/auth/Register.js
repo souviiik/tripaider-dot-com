@@ -12,16 +12,16 @@ import Input from "../common/Input";
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const formik = useFormik({
     initialValues: {
-      fname: "",
-      lname: "",
+      fullname: "",
+      // lname: "",
       email: "",
-      phone: "",
-      usertype: "traveller",
+      // phone: "",
+      // usertype: "traveller",
       password: "",
       repass: "",
     },
-    onSubmit: ({ fname, lname, email, phone, usertype, password }) => {
-      register({ fname, lname, email, phone, usertype, password });
+    onSubmit: ({ fullname, email, password }) => {
+      register({ fullname, email, password });
       // axios
       //   .post("https://tripaider-api.herokuapp.com/api/users", values)
       //   .then((res) => console.log(res.data))
@@ -75,15 +75,15 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           <h2 className="title is-size-2">Sign Up</h2>
           <form onSubmit={handleSubmit}>
             <Input
-              label="First Name"
+              label="Full Name"
               type="text"
-              id="fname"
-              name="fname"
+              id="fullname"
+              name="fullname"
               changeHandler={handleChange}
               blurHandler={handleBlur}
-              value={values.fname}
+              value={values.fullname}
             />
-            <Input
+            {/* <Input
               label="Last Name"
               type="text"
               id="lname"
@@ -91,7 +91,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               changeHandler={handleChange}
               blurHandler={handleBlur}
               value={values.lname}
-            />
+            /> */}
             <Input
               label="Email"
               type="email"
@@ -101,7 +101,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               blurHandler={handleBlur}
               value={values.email}
             />
-            <Input
+            {/* <Input
               label="Phone"
               type="tel"
               id="phone"
@@ -109,8 +109,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               changeHandler={handleChange}
               blurHandler={handleBlur}
               value={values.phone}
-            />
-            <div className="control mb-3">
+            /> */}
+            {/* <div className="control mb-3">
               <label htmlFor="usertype">User Type</label>
               <div className="select" style={{ display: "block" }}>
                 <select
@@ -125,7 +125,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                   <option value="agent">Travel Agent</option>
                 </select>
               </div>
-            </div>
+            </div> */}
             <Input
               label="Password"
               type="password"

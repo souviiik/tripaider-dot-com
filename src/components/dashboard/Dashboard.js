@@ -12,7 +12,7 @@ const Dashboard = ({
   deleteAccount,
   auth: {
     user,
-    user: { fname, lname, usertype },
+    user: { fullname },
   },
   profile: { profile },
 }) => {
@@ -25,7 +25,7 @@ const Dashboard = ({
       <h2 className="title is-size-2">Dashboard</h2>
       <p className="lead">
         <i className="fas fa-user" /> Welcome{" "}
-        {user && `${fname} ${lname} - ${usertype}`}
+        {user && `${fullname}`}
       </p>
       {profile !== null ? (
         <Fragment>
