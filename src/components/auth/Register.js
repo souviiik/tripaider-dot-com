@@ -12,7 +12,7 @@ import Input from "../common/Input";
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const formik = useFormik({
     initialValues: {
-      // fullname: "",
+      fullname: "",
       // lname: "",
       email: "",
       // phone: "",
@@ -20,8 +20,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       password: "",
       repass: "",
     },
-    onSubmit: ({ email, password }) => {
-      register({ email, password });
+    onSubmit: ({ fullname, email, password }) => {
+      register({ fullname, email, password });
       // axios
       //   .post("https://tripaider-api.herokuapp.com/api/users", values)
       //   .then((res) => console.log(res.data))
@@ -74,7 +74,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className="column is-half">
           <h2 className="title is-size-2">Sign Up</h2>
           <form onSubmit={handleSubmit}>
-            {/* <Input
+            <Input
               label="Full Name"
               type="text"
               id="fullname"
@@ -82,7 +82,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               changeHandler={handleChange}
               blurHandler={handleBlur}
               value={values.fullname}
-            /> */}
+            />
             {/* <Input
               label="Last Name"
               type="text"
