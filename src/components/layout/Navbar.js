@@ -27,7 +27,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
     <div className="navbar-end">
       <div className="navbar-item">
         <div className="buttons">
-          <Link to="/register" className="button is-success">
+          <Link to="/signup" className="button is-success">
             Sign up
           </Link>
           <Link to="/login" className="button is-info">

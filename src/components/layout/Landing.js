@@ -17,7 +17,7 @@ const Landing = ({ isAuthenticated }) => {
           Morbi finibus, tortor at cursus blandit, leo metus tristique eros, vel fermentum risus nunc sed libero. Nullam nisl arcu, mattis nec libero eu, euismod convallis eros. Nullam tempus dui aliquam nisl viverra, sed tempor eros gravida. Aliquam eget aliquet enim, eu dignissim nulla. Nulla ultricies imperdiet congue. Phasellus molestie ex risus, at dictum mauris aliquet non. Quisque eu gravida odio, ut hendrerit mi.
           </p>
           <div className="buttons">
-            <Link to="/register" className="button is-success">
+            <Link to="/signup" className="button is-success">
               Sign Up
             </Link>
             <Link to="/login" className="button is-info">

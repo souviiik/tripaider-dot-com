@@ -19,7 +19,7 @@ const Routes = props => {
     <section className="container">
       <Alert />
       <Switch>
-        <Route exact path="/register" component={Register} />
+        <Route exact path="/signup" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/profiles" component={Profiles} />
         <Route exact path="/profile/:id" component={Profile} />
