@@ -16,11 +16,11 @@ const Landing = ({ isAuthenticated }) => {
           <p className="mb-5">
           Morbi finibus, tortor at cursus blandit, leo metus tristique eros, vel fermentum risus nunc sed libero. Nullam nisl arcu, mattis nec libero eu, euismod convallis eros. Nullam tempus dui aliquam nisl viverra, sed tempor eros gravida. Aliquam eget aliquet enim, eu dignissim nulla. Nulla ultricies imperdiet congue. Phasellus molestie ex risus, at dictum mauris aliquet non. Quisque eu gravida odio, ut hendrerit mi.
           </p>
-          <div className="buttons">
+          {/* <div className="buttons">
             <Link to="/login" className="button is-info">
               Login
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

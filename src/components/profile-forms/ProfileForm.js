@@ -49,7 +49,8 @@ const ProfileForm = ({
     }
   }, [loading, getCurrentProfile, profile]);
 
-  const { usertype, phone, location, serviceareas } = formData;
+  const { usertype } = formData;
+  // const { usertype, phone, location, serviceareas } = formData;
 
   // const {
   //   company,
