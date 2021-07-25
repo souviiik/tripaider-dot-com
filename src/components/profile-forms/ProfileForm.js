@@ -1,33 +1,37 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createProfile, getCurrentProfile } from '../../actions/profile';
+import React, { Fragment, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { createProfile, getCurrentProfile } from "../../actions/profile";
 
 const initialState = {
-  company: '',
-  website: '',
-  location: '',
-  status: '',
-  skills: '',
-  githubusername: '',
-  bio: '',
-  twitter: '',
-  facebook: '',
-  linkedin: '',
-  youtube: '',
-  instagram: ''
+  usertype: "",
+  phone: "",
+  location: "",
+  serviceareas: "",
+  // company: '',
+  // website: '',
+  // location: '',
+  // status: '',
+  // skills: '',
+  // githubusername: '',
+  // bio: '',
+  // twitter: '',
+  // facebook: '',
+  // linkedin: '',
+  // youtube: '',
+  // instagram: ''
 };
 
 const ProfileForm = ({
   profile: { profile, loading },
   createProfile,
   getCurrentProfile,
-  history
+  history,
 }) => {
   const [formData, setFormData] = useState(initialState);
 
-  const [displaySocialInputs, toggleSocialInputs] = useState(false);
+  // const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
   useEffect(() => {
     if (!profile) getCurrentProfile();
@@ -40,43 +44,61 @@ const ProfileForm = ({
         if (key in profileData) profileData[key] = profile.social[key];
       }
       if (Array.isArray(profileData.skills))
-        profileData.skills = profileData.skills.join(', ');
+        profileData.skills = profileData.skills.join(", ");
       setFormData(profileData);
     }
   }, [loading, getCurrentProfile, profile]);
 
-  const {
-    company,
-    website,
-    location,
-    status,
-    skills,
-    githubusername,
-    bio,
-    twitter,
-    facebook,
-    linkedin,
-    youtube,
-    instagram
-  } = formData;
+  const { usertype, phone, location, serviceareas } = formData;
 
-  const onChange = e =>
+  // const {
+  //   company,
+  //   website,
+  //   location,
+  //   status,
+  //   skills,
+  //   githubusername,
+  //   bio,
+  //   twitter,
+  //   facebook,
+  //   linkedin,
+  //   youtube,
+  //   instagram
+  // } = formData;
+
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     createProfile(formData, history, profile ? true : false);
   };
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Edit Your Profile</h1>
+      <h2 className="title is-size-2">Edit Your Profile</h2>
       <p className="lead">
         <i className="fas fa-user" /> Add some changes to your profile
       </p>
-      <small>* = required field</small>
-      <form className="form" onSubmit={onSubmit}>
-        <div className="form-group">
+      <small className="has-text-danger">* required field</small>
+      <form className="form py-3" onSubmit={onSubmit}>
+        <p>
+          I am a{" "}
+          <select name="usertype" value={usertype} onChange={onChange}>
+            <option value="">-- select --</option>
+            <option value="traveller">Traveller</option>
+            <option value="agent">Travel agent</option>
+          </select>
+        </p>
+
+        <div>
+          {usertype !== ""
+            ? usertype === "agent"
+              ? "Agent Component - phone, location, serviceareas, website, fb page etc."
+              : "Traveller Component - phone, location"
+            : null}
+        </div>
+        {/* <div className="form-group">
           <select name="status" value={status} onChange={onChange}>
             <option>* Select Professional Status</option>
             <option value="Developer">Developer</option>
@@ -231,12 +253,14 @@ const ProfileForm = ({
               />
             </div>
           </Fragment>
-        )}
+        )} */}
 
-        <input type="submit" className="btn btn-primary my-1" />
-        <Link className="btn btn-light my-1" to="/dashboard">
-          Go Back
-        </Link>
+        <div className="mt-3">
+          <input type="submit" className="button is-success mr-3" />
+          <Link className="button is-light" to="/dashboard">
+            Go Back
+          </Link>
+        </div>
       </form>
     </Fragment>
   );
@@ -245,11 +269,11 @@ const ProfileForm = ({
 ProfileForm.propTypes = {
   createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  profile: state.profile
+const mapStateToProps = (state) => ({
+  profile: state.profile,
 });
 
 export default connect(mapStateToProps, { createProfile, getCurrentProfile })(

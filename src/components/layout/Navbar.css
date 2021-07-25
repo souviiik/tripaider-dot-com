@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
+
+.logo {
+  color: #d33;
+  font-family: "Krona One", sans-serif;
+  font-size: 36px;
+  letter-spacing: 7px;
+}

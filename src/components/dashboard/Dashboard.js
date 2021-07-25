@@ -12,7 +12,7 @@ const Dashboard = ({
   deleteAccount,
   auth: {
     user,
-    user: { fullname },
+    // user: { fullname },
   },
   profile: { profile },
 }) => {
@@ -23,15 +23,14 @@ const Dashboard = ({
   return (
     <Fragment>
       <h2 className="title is-size-2">Dashboard</h2>
-      <p className="lead">
-        <i className="fas fa-user" /> Welcome{" "}
-        {user && `${fullname}`}
-      </p>
+      <h3 className="title is-size-3">
+        <i className="fas fa-user" /> Welcome {user && `${user.fullname}`}
+      </h3>
       {profile !== null ? (
         <Fragment>
-          <DashboardActions />
+          {/* <DashboardActions />
           <Experience experience={profile.experience} />
-          <Education education={profile.education} />
+          <Education education={profile.education} /> */}
 
           <div className="my-2">
             <button className="btn btn-danger" onClick={() => deleteAccount()}>
@@ -42,7 +41,7 @@ const Dashboard = ({
       ) : (
         <Fragment>
           <p>You have not yet setup a profile, please add some info</p>
-          <Link to="/create-profile" className="btn btn-primary my-1">
+          <Link to="/create-profile" className="button is-success mt-3">
             Create Profile
           </Link>
         </Fragment>

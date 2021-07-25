@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import "bulma/css/bulma.css";
 
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";

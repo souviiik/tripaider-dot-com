@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
 
-import Logo from "../../assets/logo.jpg";
+import "./Navbar.css";
+
+// import Logo from "../../assets/logo.jpg";
 
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
+  const [hideMobileMenu, setHideMobileMenu] = useState(true);
+
   const authLinks = (
     <>
-      <Link className="navbar-item">Dashboard</Link>
-      <Link className="navbar-item">Developers</Link>
-      <Link className="navbar-item">Posts</Link>
+      <Link to="/dashboard" className="navbar-item">
+        Dashboard
+      </Link>
+      {/* <Link className="navbar-item">Developers</Link> */}
+      {/* <Link className="navbar-item">Posts</Link> */}
       <div className="navbar-end">
         <div className="navbar-item">
           <a onClick={logout} href="#!" className="button is-danger">
@@ -27,9 +33,6 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
     <div className="navbar-end">
       <div className="navbar-item">
         <div className="buttons">
-          <Link to="/signup" className="button is-success">
-            Sign up
-          </Link>
           <Link to="/login" className="button is-info">
             Log in
           </Link>
@@ -38,11 +41,16 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
     </div>
   );
 
+  const toggleDisplay = () => {
+    console.log("Show/ Hide Nav");
+    setHideMobileMenu((pv) => !pv);
+  };
+
   return (
     <nav className="navbar mb-5" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <Link className="navbar-item" to="/">
-          <img src={Logo} alt="tripaider logo" style={{ height: "7.5rem" }} />
+          <div className="logo">tripaider</div>
         </Link>
 
         <Link
@@ -51,6 +59,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarBasicExample"
+          onClick={toggleDisplay}
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -58,7 +67,10 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
         </Link>
       </div>
 
-      <div id="navbarBasicExample" className="navbar-menu">
+      <div
+        id="navbarBasicExample"
+        className={hideMobileMenu ? "navbar-menu" : ""}
+      >
         {isAuthenticated ? authLinks : guestLinks}
         {/* <div className="navbar-start">
           <Link to="/" className="navbar-item">

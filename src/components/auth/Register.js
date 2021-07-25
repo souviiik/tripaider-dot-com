@@ -13,23 +13,14 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   const formik = useFormik({
     initialValues: {
       fullname: "",
-      // lname: "",
       email: "",
-      // phone: "",
-      // usertype: "traveller",
       password: "",
       repass: "",
     },
     onSubmit: ({ fullname, email, password }) => {
       register({ fullname, email, password });
-      // axios
-      //   .post("https://tripaider-api.herokuapp.com/api/users", values)
-      //   .then((res) => console.log(res.data))
-      //   .catch((err) => console.log(err));
     },
   });
-
-  console.log(`formik`, formik);
 
   const {
     resetForm,
@@ -37,28 +28,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     handleChange,
     handleBlur,
     values,
-    // isSubmitting,
   } = formik;
-  // const [formData, setFormData] = useState({
-  //   name: '',
-  //   email: '',
-  //   password: '',
-  //   password2: ''
-  // });
-
-  // const { name, email, password, password2 } = formData;
-
-  // const onChange = (e) =>
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  // const onSubmit = async (e) => {
-  //   e.preventDefault();
-  //   if (password !== password2) {
-  //     setAlert('Passwords do not match', 'danger');
-  //   } else {
-  //     register({ name, email, password });
-  //   }
-  // };
 
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
@@ -83,15 +53,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               blurHandler={handleBlur}
               value={values.fullname}
             />
-            {/* <Input
-              label="Last Name"
-              type="text"
-              id="lname"
-              name="lname"
-              changeHandler={handleChange}
-              blurHandler={handleBlur}
-              value={values.lname}
-            /> */}
             <Input
               label="Email"
               type="email"
@@ -101,31 +62,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               blurHandler={handleBlur}
               value={values.email}
             />
-            {/* <Input
-              label="Phone"
-              type="tel"
-              id="phone"
-              name="phone"
-              changeHandler={handleChange}
-              blurHandler={handleBlur}
-              value={values.phone}
-            /> */}
-            {/* <div className="control mb-3">
-              <label htmlFor="usertype">User Type</label>
-              <div className="select" style={{ display: "block" }}>
-                <select
-                  id="usertype"
-                  className="input"
-                  name="usertype"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.usertype}
-                >
-                  <option value="traveller">Traveller</option>
-                  <option value="agent">Travel Agent</option>
-                </select>
-              </div>
-            </div> */}
             <Input
               label="Password"
               type="password"
@@ -157,50 +93,6 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               </button>
             </div>
           </form>
-
-          {/* <form className="form" onSubmit={onSubmit}>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Name"
-            name="name"
-            value={name}
-            onChange={onChange}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            value={email}
-            onChange={onChange}
-          />
-          <small className="form-text">
-            This site uses Gravatar so if you want a profile image, use a
-            Gravatar email
-          </small>
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={onChange}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            name="password2"
-            value={password2}
-            onChange={onChange}
-          />
-        </div>
-        <input type="submit" className="btn btn-primary" value="Register" />
-      </form> */}
           <p className="my-1">
             Already have an account? <Link to="/login">Sign In</Link>
           </p>
