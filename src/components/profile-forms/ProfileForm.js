@@ -93,11 +93,29 @@ const ProfileForm = ({
         </p>
 
         <div>
-          {usertype !== ""
-            ? usertype === "agent"
-              ? "Agent Component - phone, location, serviceareas, website, fb page etc."
-              : "Traveller Component - phone, location"
-            : null}
+          {usertype !== "" ? (
+            usertype === "agent" ? (
+              <>
+                Collect data for -
+                <ul>
+                  <li>Agency name, </li>
+                  <li>phone, </li>
+                  <li>location, </li>
+                  <li>serviceareas, </li>
+                  <li>website, </li>
+                  <li>fb page etc.</li>
+                </ul>
+              </>
+            ) : (
+              <>
+                Collect data for -
+                <ul>
+                  <li>phone,</li>
+                  <li>location</li>
+                </ul>
+              </>
+            )
+          ) : null}
         </div>
         {/* <div className="form-group">
           <select name="status" value={status} onChange={onChange}>
