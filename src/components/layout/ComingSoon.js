@@ -80,7 +80,11 @@ export default function ComingSoon() {
           <p className="is-size-7">We promise to never spam you.</p>
         </article>
         <div className="my-5">
-          <a href="https://www.facebook.com/tripaider" target="_blank">
+          <a
+            href="https://www.facebook.com/tripaider"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FaFacebook className="is-size-3" />
           </a>
         </div>
