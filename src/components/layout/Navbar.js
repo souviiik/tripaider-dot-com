@@ -53,7 +53,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
           <div className="logo">tripaider</div>
         </Link>
 
-        <Link
+        {/* <Link
           role="button"
           className="navbar-burger"
           aria-label="menu"
@@ -64,14 +64,14 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </Link>
+        </Link> */}
       </div>
 
       <div
         id="navbarBasicExample"
         className={hideMobileMenu ? "navbar-menu" : ""}
       >
-        {isAuthenticated ? authLinks : guestLinks}
+        {/* {isAuthenticated ? authLinks : guestLinks} */}
         {/* <div className="navbar-start">
           <Link to="/" className="navbar-item">
             Home

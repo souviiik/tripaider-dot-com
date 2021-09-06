@@ -12,6 +12,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
+import ComingSoon from "./components/layout/ComingSoon";
 
 // import "./App.css";
 
@@ -34,12 +35,18 @@ const App = () => {
       <Router>
         <Fragment>
           <Helmet>
-            <title>Welcome to tripaider | tripaider - a new way to travel</title>
-            <meta name="description" content="tripaider provides you with a new way of cost effective travel" />
+            <title>
+              Welcome to tripaider | tripaider - a new way to travel
+            </title>
+            <meta
+              name="description"
+              content="tripaider provides you with a new way of cost effective travel"
+            />
           </Helmet>
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/" component={ComingSoon} />
+            <Route exact path="/362581" component={Landing} />
             <Route component={Routes} />
           </Switch>
         </Fragment>
