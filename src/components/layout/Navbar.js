@@ -9,7 +9,7 @@ import "./Navbar.css";
 // import Logo from "../../assets/logo.jpg";
 
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
-  const [hideMobileMenu, setHideMobileMenu] = useState(true);
+  // const [hideMobileMenu, setHideMobileMenu] = useState(true);
 
   // const authLinks = (
   //   <>
@@ -69,7 +69,8 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
 
       <div
         id="navbarBasicExample"
-        className={hideMobileMenu ? "navbar-menu" : ""}
+        className="navbar-menu"
+        // className={hideMobileMenu ? "navbar-menu" : ""}
       >
         {/* {isAuthenticated ? authLinks : guestLinks} */}
         {/* <div className="navbar-start">
