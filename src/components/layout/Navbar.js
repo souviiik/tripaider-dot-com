@@ -11,40 +11,40 @@ import "./Navbar.css";
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const [hideMobileMenu, setHideMobileMenu] = useState(true);
 
-  const authLinks = (
-    <>
-      <Link to="/dashboard" className="navbar-item">
-        Dashboard
-      </Link>
-      {/* <Link className="navbar-item">Developers</Link> */}
-      {/* <Link className="navbar-item">Posts</Link> */}
-      <div className="navbar-end">
-        <div className="navbar-item">
-          <a onClick={logout} href="#!" className="button is-danger">
-            <i className="fas fa-sign-out-alt" />{" "}
-            <span className="hide-sm">Logout</span>
-          </a>
-        </div>
-      </div>
-    </>
-  );
+  // const authLinks = (
+  //   <>
+  //     <Link to="/dashboard" className="navbar-item">
+  //       Dashboard
+  //     </Link>
+  //     {/* <Link className="navbar-item">Developers</Link> */}
+  //     {/* <Link className="navbar-item">Posts</Link> */}
+  //     <div className="navbar-end">
+  //       <div className="navbar-item">
+  //         <a onClick={logout} href="#!" className="button is-danger">
+  //           <i className="fas fa-sign-out-alt" />{" "}
+  //           <span className="hide-sm">Logout</span>
+  //         </a>
+  //       </div>
+  //     </div>
+  //   </>
+  // );
 
-  const guestLinks = (
-    <div className="navbar-end">
-      <div className="navbar-item">
-        <div className="buttons">
-          <Link to="/login" className="button is-info">
-            Log in
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
+  // const guestLinks = (
+  //   <div className="navbar-end">
+  //     <div className="navbar-item">
+  //       <div className="buttons">
+  //         <Link to="/login" className="button is-info">
+  //           Log in
+  //         </Link>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 
-  const toggleDisplay = () => {
-    console.log("Show/ Hide Nav");
-    setHideMobileMenu((pv) => !pv);
-  };
+  // const toggleDisplay = () => {
+  //   console.log("Show/ Hide Nav");
+  //   setHideMobileMenu((pv) => !pv);
+  // };
 
   return (
     <nav className="navbar mb-5" role="navigation" aria-label="main navigation">
