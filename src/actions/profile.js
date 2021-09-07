@@ -34,7 +34,7 @@ export const getProfiles = () => async (dispatch) => {
   dispatch({ type: CLEAR_PROFILE });
 
   try {
-    const res = await api.get('/profile');
+    const res = await api.get('/travellerprofile');
 
     dispatch({
       type: GET_PROFILES,
@@ -86,7 +86,7 @@ export const createProfile = (formData, history, edit = false) => async (
   dispatch
 ) => {
   try {
-    const res = await api.post('/profile', formData);
+    const res = await api.post('/travellerprofile', formData);
 
     dispatch({
       type: GET_PROFILE,
@@ -208,7 +208,7 @@ export const deleteEducation = (id) => async (dispatch) => {
 export const deleteAccount = () => async (dispatch) => {
   if (window.confirm('Are you sure? This can NOT be undone!')) {
     try {
-      await api.delete('/profile');
+      await api.delete('/travellerprofile');
 
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });
