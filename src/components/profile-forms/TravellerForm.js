@@ -9,15 +9,6 @@ export default function TravellerForm({
   return (
     <>
       <Input
-        label="Full name"
-        type="text"
-        id="fullname"
-        name="fullname"
-        changeHandler={handleChange}
-        // blurHandler={handleBlur}
-        value={formData.fullname}
-      />
-      <Input
         label="My phone number is"
         type="tel"
         id="phone"

@@ -20,15 +20,6 @@ export default function AgentForm({
   return (
     <>
       <Input
-        label="Full name"
-        type="text"
-        id="fullname"
-        name="fullname"
-        changeHandler={handleChange}
-        // blurHandler={handleBlur}
-        value={formData.fullname}
-      />
-      <Input
         label="Business name"
         type="tel"
         id="phone"
