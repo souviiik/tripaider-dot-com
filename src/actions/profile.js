@@ -15,7 +15,7 @@ import {
 // Get current users profile
 export const getCurrentProfile = () => async (dispatch) => {
   try {
-    const res = await api.get('/profile/me');
+    const res = await api.get('/travellerprofile/me');
 
     dispatch({
       type: GET_PROFILE,
@@ -51,7 +51,7 @@ export const getProfiles = () => async (dispatch) => {
 // Get profile by ID
 export const getProfileById = (userId) => async (dispatch) => {
   try {
-    const res = await api.get(`/profile/user/${userId}`);
+    const res = await api.get(`/travellerprofile/user/${userId}`);
 
     dispatch({
       type: GET_PROFILE,
@@ -68,7 +68,7 @@ export const getProfileById = (userId) => async (dispatch) => {
 // Get Github repos
 export const getGithubRepos = (username) => async (dispatch) => {
   try {
-    const res = await api.get(`/profile/github/${username}`);
+    const res = await api.get(`/travellerprofile/github/${username}`);
 
     dispatch({
       type: GET_REPOS,
@@ -115,7 +115,7 @@ export const createProfile = (formData, history, edit = false) => async (
 // Add Experience
 export const addExperience = (formData, history) => async (dispatch) => {
   try {
-    const res = await api.put('/profile/experience', formData);
+    const res = await api.put('/travellerprofile/experience', formData);
 
     dispatch({
       type: UPDATE_PROFILE,
@@ -142,7 +142,7 @@ export const addExperience = (formData, history) => async (dispatch) => {
 // Add Education
 export const addEducation = (formData, history) => async (dispatch) => {
   try {
-    const res = await api.put('/profile/education', formData);
+    const res = await api.put('/travellerprofile/education', formData);
 
     dispatch({
       type: UPDATE_PROFILE,
@@ -169,7 +169,7 @@ export const addEducation = (formData, history) => async (dispatch) => {
 // Delete experience
 export const deleteExperience = (id) => async (dispatch) => {
   try {
-    const res = await api.delete(`/profile/experience/${id}`);
+    const res = await api.delete(`/travellerprofile/experience/${id}`);
 
     dispatch({
       type: UPDATE_PROFILE,
@@ -188,7 +188,7 @@ export const deleteExperience = (id) => async (dispatch) => {
 // Delete education
 export const deleteEducation = (id) => async (dispatch) => {
   try {
-    const res = await api.delete(`/profile/education/${id}`);
+    const res = await api.delete(`/travellerprofile/education/${id}`);
 
     dispatch({
       type: UPDATE_PROFILE,
