@@ -9,7 +9,7 @@ const Landing = ({ isAuthenticated }) => {
   }
 
   return (
-    <section className="container">
+    <section className="container p-3">
       <div className="dark-overlay">
         <div className="landing-inner">
           <h1 className="title is-size-1">Welcome to tripaider</h1>

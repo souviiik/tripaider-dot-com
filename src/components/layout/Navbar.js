@@ -42,7 +42,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   );
 
   const toggleDisplay = () => {
-    console.log("Show/ Hide Nav");
+    // console.log("Show/ Hide Nav");
     setHideMobileMenu((pv) => !pv);
   };
 
