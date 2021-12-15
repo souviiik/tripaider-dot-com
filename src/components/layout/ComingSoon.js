@@ -61,9 +61,10 @@ export default function ComingSoon() {
               <div className="control">
                 <input
                   className="input"
-                  type="text"
+                  type="email"
                   placeholder="Enter Your Email"
                   name="email"
+                  required
                   value={formValues.email}
                   onChange={handleChange}
                 />
